@@ -12,12 +12,12 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
         ## Return the mean of the pollutant across all monitors list
         ## in the 'id' vector (ignoring NA values)
         
-        multidata <- c() ##creates an empty vector for storing values
-        for (i in id) { ##repeats for the given length
-                fileName <- sprintf('%s/%03d.csv', directory, i) ##gets files names
-                rawData <- read.csv(fileName) ##reads csv file
-                data <- rawData[[pollutant]] ##filters the data to store only required set
-                multidata <- c(multidata,data) ##adds the values from previous reads
+        multidata <- c() ## creates an empty vector for storing values
+        for (i in id) { ## repeats for the given length
+                fileName <- sprintf('%s/%03d.csv', directory, i) ## gets files names
+                rawData <- read.csv(fileName) ## reads csv file
+                data <- rawData[[pollutant]] ## filters the data to store only required set
+                multidata <- c(multidata,data) ## adds the values from previous reads
                 }
-        mean(multidata, na.rm=TRUE) ##calculates the mean value
+        mean(multidata, na.rm=TRUE) ## calculates the mean value
 }
